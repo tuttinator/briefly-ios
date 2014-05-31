@@ -17,3 +17,5 @@ nbproject
 .dat*.*
 .env
 vendor/**/build-iPhoneOS/
+vendor/Pods/.build/
+vendor/Pods/build-iPhoneSimulator/
