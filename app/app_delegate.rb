@@ -5,7 +5,7 @@ class AppDelegate
                                                UIRemoteNotificationTypeSound|
                                                UIRemoteNotificationTypeAlert))
     UINavigationBar.appearance.tap do |o|
-      o.barTintColor = BubbleWrap.rgba_color(98, 95, 89, 1.0)
+      o.barTintColor = BubbleWrap.rgb_color(98, 95, 89)
       o.tintColor = BubbleWrap.rgb_color(78, 31, 22)
 
       o.setTitleTextAttributes({

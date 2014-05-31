@@ -28,8 +28,13 @@ class ListViewController < UITableViewController
     end
 
     article = @articles[indexPath.row]
+
     cell.textLabel.text = article.title
+    setup_label cell.textLabel
+
     cell.detailTextLabel.text = article.summary
+    setup_label cell.detailTextLabel
+
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator
     image_view = UIImageView.alloc.initWithFrame CGRectMake(0, 0, 330, 120)
     image_view.url = article.image
@@ -39,5 +44,14 @@ class ListViewController < UITableViewController
 
   def tableView(tableView, heightForRowAtIndexPath: indexPath)
     180
+  end
+
+  private
+
+  def setup_label(label)
+    label.textColor = UIColor.whiteColor
+    label.numberOfLines = 0
+    label.sizeToFit
+    label.lineBreakMode = UILineBreakModeWordWrap
   end
 end
