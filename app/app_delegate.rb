@@ -13,7 +13,7 @@ class AppDelegate
       })
     end
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @window.backgroundColor = BubbleWrap.rgb_color(198, 78, 57)
+    @window.backgroundColor = BubbleWrap.rgb_color(249, 241, 226)
     @window.rootViewController = UINavigationController.alloc.initWithRootViewController(ListViewController.new)
     @window.makeKeyAndVisible
     true
