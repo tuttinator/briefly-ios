@@ -1,10 +1,15 @@
 class ListViewController < UITableViewController
   attr_reader :articles
 
+  def init
+    super.tap do |c|
+      c.title = "Briefly"
+    end
+  end
+
   def viewDidLoad
     super
     @articles = []
-    view.backgroundColor = UIColor.grayColor
     AFMotion::JSON.get('http://api.briefly.co.nz/v1/articles.json') do |result|
       @articles = Article.load_from_json(result.object)
       self.tableView.reloadData
@@ -19,12 +24,20 @@ class ListViewController < UITableViewController
     cell_id = 'cell'
     cell = tableView.dequeueReusableCellWithIdentifier cell_id
     if cell.nil?
-      cell = UITableViewCell.alloc.initWithStyle UITableViewCellStyleDefault, reuseIdentifier:cell_id
+      cell = UITableViewCell.alloc.initWithStyle UITableViewCellStyleSubtitle, reuseIdentifier:cell_id
     end
 
     article = @articles[indexPath.row]
     cell.textLabel.text = article.title
-    cell.imageView.url = article.image
+    cell.detailTextLabel.text = article.summary
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator
+    image_view = UIImageView.alloc.initWithFrame CGRectMake(0, 0, 330, 120)
+    image_view.url = article.image
+    cell.backgroundView = image_view
     cell
+  end
+
+  def tableView(tableView, heightForRowAtIndexPath: indexPath)
+    180
   end
 end
