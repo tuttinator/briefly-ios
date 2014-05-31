@@ -12,7 +12,7 @@ Dotenv.load
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
-  app.name = 'briefly-ios'
+  app.name = 'Briefly'
   app.identifier = 'nz.co.briefly'
   #app.entitlements['aps-environment'] = 'development'
   app.icons = %W(Icon-72.png Icon-76.png Icon-Small-40.png Icon-Small-50.png
