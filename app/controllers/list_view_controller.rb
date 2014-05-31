@@ -24,6 +24,7 @@ class ListViewController < UITableViewController
 
     article = @articles[indexPath.row]
     cell.textLabel.text = article.title
+    cell.imageView.url = article.image
     cell
   end
 end
