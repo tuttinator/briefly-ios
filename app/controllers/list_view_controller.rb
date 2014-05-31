@@ -10,9 +10,11 @@ class ListViewController < UITableViewController
   def viewDidLoad
     super
     @articles = []
+    BW::NetworkIndicator.show
     AFMotion::JSON.get('http://api.briefly.co.nz/v1/articles.json') do |result|
       @articles = Article.load_from_json(result.object)
       self.tableView.reloadData
+      BW::NetworkIndicator.hide
     end
   end
 
@@ -49,7 +51,7 @@ class ListViewController < UITableViewController
   private
 
   def setup_label(label)
-    label.textColor = UIColor.whiteColor
+    label.textColor = BubbleWrap.rgb_color(249, 241, 226)
     label.numberOfLines = 0
     label.sizeToFit
     label.lineBreakMode = UILineBreakModeWordWrap
