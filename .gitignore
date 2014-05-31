@@ -19,3 +19,9 @@ nbproject
 vendor/**/build-iPhoneOS/
 vendor/Pods/.build/
 vendor/Pods/build-iPhoneSimulator/
+vendor/Carnival.framework/build-iPhoneSimulator/Carnival.framework.bridgesupport
+vendor/Pods/.build/libPods-AFNetworking.a
+vendor/Pods/.build/libPods.a
+vendor/Pods/build-iPhoneSimulator/Pods.bridgesupport
+vendor/Pods/build-iPhoneSimulator/libPods.a
+
