@@ -36,6 +36,7 @@ class ArticleController < UIViewController
   end
 
   def webView(webView, didFailLoadWithError: error)
+    return if error.code == NSURLErrorCancelled
     # load error, hide the activity indicator in the status bar
     UIApplication.sharedApplication.networkActivityIndicatorVisible = false
 
