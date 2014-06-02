@@ -26,7 +26,7 @@ class ListViewController < UITableViewController
     cell_id = 'cell'
     cell = tableView.dequeueReusableCellWithIdentifier cell_id
     if cell.nil?
-      cell = UITableViewCell.alloc.initWithStyle UITableViewCellStyleSubtitle, reuseIdentifier:cell_id
+      cell = BRFTableViewCell.alloc.initWithStyle UITableViewCellStyleSubtitle, reuseIdentifier: cell_id
     end
 
     article = @articles[indexPath.row]
