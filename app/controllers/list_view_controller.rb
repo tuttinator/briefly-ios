@@ -48,6 +48,11 @@ class ListViewController < UITableViewController
     180
   end
 
+  def tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    article_controller = ArticleController.new(@articles[indexPath.row])
+    self.navigationController.pushViewController(article_controller, animated: true)
+  end
+
   private
 
   def setup_label(label)
