@@ -25,6 +25,7 @@ class AppDelegate
   end
 
   def applicationDidBecomeActive(application)
+    super
     @list_view_controller.fetchArticles
   end
 
