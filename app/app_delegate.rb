@@ -29,5 +29,9 @@ class AppDelegate
     @list_view_controller.fetchArticles
   end
 
+  def shouldAutorotate
+    false
+  end
+
 
 end
