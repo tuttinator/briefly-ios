@@ -3,8 +3,8 @@ $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 
 begin
-  require 'bundler'
-  Bundler.require
+    require 'bundler'
+    Bundler.require
 rescue LoadError
 end
 
