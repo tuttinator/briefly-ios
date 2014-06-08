@@ -3,6 +3,7 @@ class ListViewController < UITableViewController
   BEIGE = BubbleWrap.rgb_color(249, 241, 226)
 
   def init
+    @articles = []
     super.tap do |c|
       c.title = "Briefly"
     end
@@ -10,7 +11,10 @@ class ListViewController < UITableViewController
 
   def viewDidLoad
     super
-    @articles = []
+    fetchArticles
+  end
+
+  def fetchArticles
     BW::NetworkIndicator.show
     AFMotion::JSON.get('http://api.briefly.co.nz/v1/articles.json') do |result|
       @articles = Article.load_from_json(result.object)
@@ -46,7 +50,7 @@ class ListViewController < UITableViewController
   end
 
   def tableView(tableView, heightForRowAtIndexPath: indexPath)
-    180
+    100
   end
 
   def tableView(tableView, didSelectRowAtIndexPath: indexPath)

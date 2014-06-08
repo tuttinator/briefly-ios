@@ -9,7 +9,7 @@ class Article
 
   def self.load_from_json(response)
     response.map do |json|
-      new(stored_id: json['id'], title: json['title'], summary: json['summary'], link: json['link'], image: json['image'])
+      new(stored_id: json['id'], title: json['title'], summary: json['summary'], link: json['link'], image: json['image_banner'])
     end
   end
 end
