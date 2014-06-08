@@ -1,5 +1,6 @@
 class ListViewController < UITableViewController
   attr_reader :articles
+  BEIGE = BubbleWrap.rgb_color(249, 241, 226)
 
   def init
     super.tap do |c|
@@ -56,7 +57,7 @@ class ListViewController < UITableViewController
   private
 
   def setup_label(label)
-    label.textColor = BubbleWrap.rgb_color(249, 241, 226)
+    label.textColor = BEIGE
     label.numberOfLines = 0
     label.sizeToFit
     label.lineBreakMode = UILineBreakModeWordWrap
