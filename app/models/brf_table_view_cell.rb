@@ -1,7 +1,9 @@
 class BRFTableViewCell < UITableViewCell
+  RED = BubbleWrap.rgb_color(198, 78, 57)
+
   def layoutSubviews
     super
-    self.textLabel.backgroundColor = BubbleWrap.rgba_color(198, 78, 57, 0.6)
-    self.detailTextLabel.backgroundColor = BubbleWrap.rgba_color(198, 78, 57, 0.6)
+    self.textLabel.backgroundColor = RED
+    self.detailTextLabel.backgroundColor = RED
   end
 end
