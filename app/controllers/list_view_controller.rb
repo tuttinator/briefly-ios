@@ -50,7 +50,7 @@ class ListViewController < UITableViewController
   end
 
   def tableView(tableView, heightForRowAtIndexPath: indexPath)
-    100
+    174
   end
 
   def tableView(tableView, didSelectRowAtIndexPath: indexPath)
