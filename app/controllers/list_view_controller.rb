@@ -12,12 +12,16 @@ class ListViewController < UITableViewController
   def viewDidLoad
     super
     fetchArticles
+    @refreshControl = UIRefreshControl.alloc.init
+    self.tableView.addSubview(@refreshControl)
+    @refreshControl.addTarget(self, action: 'fetchArticles', forControlEvents: UIControlEventValueChanged)
   end
 
   def fetchArticles
     BW::NetworkIndicator.show
     AFMotion::JSON.get('http://api.briefly.co.nz/v1/articles.json') do |result|
       @articles = Article.load_from_json(result.object)
+      @refreshControl
       self.tableView.reloadData
       BW::NetworkIndicator.hide
     end
