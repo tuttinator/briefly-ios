@@ -3,6 +3,7 @@ $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 require 'rubygems'
 require 'bundler/setup'
+Bundler.require(:default)
 
 Dotenv.load
 
