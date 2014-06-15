@@ -41,7 +41,7 @@ class ArticleController < UIViewController
     UIApplication.sharedApplication.networkActivityIndicatorVisible = false
 
     # report the error inside the webview
-    error_string = NSString.stringWithFormat("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"><html><head><meta http-equiv='Content-Type' content='text/html;charset=utf-8'><title></title></head><body><div style='width: 100%%; text-align: center; font-size: 36pt; color: red;'>An error occurred:<br>%@</div></body></html>", error.localizedDescription)
+    error_string = NSString.stringWithFormat("<!doctype html><html><head><meta http-equiv='Content-Type' content='text/html;charset=utf-8'><title></title></head><body><div style='width: 100%; text-align: center; font-size: 36px; color: red; font-family: Helvetica'>An error occurred:<br>%@<br>Trying to access %@</div></body></html>", error.localizedDescription, @article.link)
     @web_view.loadHTMLString(error_string, baseURL: nil)
   end
 
