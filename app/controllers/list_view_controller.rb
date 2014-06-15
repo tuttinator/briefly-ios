@@ -21,7 +21,7 @@ class ListViewController < UITableViewController
     BW::NetworkIndicator.show
     AFMotion::JSON.get('http://api.briefly.co.nz/v1/articles.json') do |result|
       @articles = Article.load_from_json(result.object)
-      @refreshControl
+      @refreshControl.endRefreshing
       self.tableView.reloadData
       BW::NetworkIndicator.hide
     end
