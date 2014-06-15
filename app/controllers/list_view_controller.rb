@@ -11,9 +11,14 @@ class ListViewController < UITableViewController
 
   def viewDidLoad
     super
+    logo = UIImage.imageNamed 'logo.png'
+    imageView = UIImageView.alloc.initWithImage logo
+    self.navigationItem.titleView = imageView
+
     fetchArticles
     @refreshControl = UIRefreshControl.alloc.init
     self.tableView.addSubview(@refreshControl)
+    self.tableView.backgroundColor = BubbleWrap.rgb_color(249, 241, 226)
     @refreshControl.addTarget(self, action: 'fetchArticles', forControlEvents: UIControlEventValueChanged)
   end
 
