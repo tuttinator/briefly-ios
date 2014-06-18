@@ -18,4 +18,9 @@ Motion::Project::App.setup do |app|
                  Icon-Small@2x.png Icon@2x.png)
   app.frameworks += ['AdSupport', 'CoreLocation']
   app.vendor_project('vendor/Carnival.framework', :static, products: ['Carnival'], headers_dir: 'Headers')
+  app.testflight do
+    app.testflight.api_token = ENV['TESTFLIGHT_API_KEY']
+    app.testflight.team_token = ENV['TESTFLIGHT_TEAM_KEY']
+    app.testflight.app_token = ENV['TESTFLIGHT_APP_KEY']
+  end
 end

@@ -69,6 +69,7 @@ GEM
     motion-cocoapods (1.4.2)
       cocoapods (>= 0.32.1)
     motion-require (0.2.0)
+    motion-testflight (1.5.1)
     multi_json (1.10.1)
     nap (0.7.0)
     netrc (0.7.7)
@@ -96,4 +97,5 @@ DEPENDENCIES
   bubble-wrap
   dotenv
   guard-motion
+  motion-testflight
   rake
