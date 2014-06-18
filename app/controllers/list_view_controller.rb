@@ -45,21 +45,31 @@ class ListViewController < UITableViewController
 
     article = @articles[indexPath.row]
 
-    cell.textLabel.text = article.title
-    setup_label cell.textLabel
+    # image view at the top of the cell
+    image_area = UIView.alloc.initWithFrame CGRectMake(0, 0, 320, 116)
+    image = UIImageView.alloc.initWithFrame CGRectMake(0, 0, 320, 116)
+    image.url = article.image
+    image_area.addSubview(image)
 
-    cell.detailTextLabel.text = article.summary
-    setup_label cell.detailTextLabel
+    cell.addSubview(image_area)
 
+    # text view at the bottom of the cell
+    text_area = UIView.alloc.initWithFrame CGRectMake(6, 121, 320, 60)
+    title = UILabel.alloc.initWithFrame CGRectMake(0, 0, 300, 40)
+    title.text = article.title
+    setup_label(title)
+
+    text_area.addSubview(title)
+
+    cell.addSubview(text_area)
+
+    cell.backgroundColor = BEIGE
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator
-    image_view = UIImageView.alloc.initWithFrame CGRectMake(0, 0, 330, 120)
-    image_view.url = article.image
-    cell.backgroundView = image_view
     cell
   end
 
   def tableView(tableView, heightForRowAtIndexPath: indexPath)
-    174
+    170
   end
 
   def tableView(tableView, didSelectRowAtIndexPath: indexPath)
@@ -70,7 +80,7 @@ class ListViewController < UITableViewController
   private
 
   def setup_label(label)
-    label.textColor = BEIGE
+    label.textColor = BubbleWrap.rgb_color(80, 80, 80)
     label.numberOfLines = 0
     label.sizeToFit
     label.lineBreakMode = UILineBreakModeWordWrap
