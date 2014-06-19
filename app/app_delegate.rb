@@ -23,6 +23,9 @@ class AppDelegate
     @window.backgroundColor = BEIGE
     @window.rootViewController = UINavigationController.alloc.initWithRootViewController(@list_view_controller)
     @window.makeKeyAndVisible
+
+    application.applicationIconBadgeNumber = 0
+
     true
   end
 
