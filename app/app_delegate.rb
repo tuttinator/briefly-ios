@@ -33,6 +33,4 @@ class AppDelegate
   def shouldAutorotate
     false
   end
-
-
 end
