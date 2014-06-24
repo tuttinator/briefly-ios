@@ -6,4 +6,7 @@ describe "Application 'briefly-ios'" do
   it "has one window" do
     @app.windows.size.should == 1
   end
+
+  # TODO: test no data returns
+
 end
